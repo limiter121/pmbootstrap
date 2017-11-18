@@ -17,6 +17,7 @@ You should have received a copy of the GNU General Public License
 along with pmbootstrap.  If not, see <http://www.gnu.org/licenses/>.
 """
 import os
+import logging
 import pmb
 
 
@@ -24,6 +25,8 @@ def bootimg(args, path):
     if not os.path.exists(path):
         raise RuntimeError("Could not find file '" + path + "'")
 
+    logging.info("NOTE: You will be prompted for your sudo password, so we can set"
+                 " up a chroot to extract and analyze your boot.img file")
     pmb.chroot.apk.install(args, ["file", "unpackbootimg"])
 
     temp_path = pmb.chroot.other.tempfolder(args, "/tmp/bootimg_parser")
@@ -35,7 +38,12 @@ def bootimg(args, path):
     file_output = pmb.chroot.user(args, ["file", "-b", "boot.img"], working_dir=temp_path,
                                   return_stdout=True).rstrip()
     if "android bootimg" not in file_output.lower():
-        raise RuntimeError("File is not an Android bootimg. (" + file_output + ")")
+        if "linux kernel" in file_output.lower():
+            raise RuntimeError("File is a Kernel image, you might need the 'heimdall-isorec'"
+                               " flash method. See also: "
+                               "<https://wiki.postmarketos.org/wiki/Deviceinfo_flash_methods>")
+        else:
+            raise RuntimeError("File is not an Android bootimg. (" + file_output + ")")
 
     # Extract all the files
     pmb.chroot.user(args, ["unpackbootimg", "-i", "boot.img"], working_dir=temp_path)
