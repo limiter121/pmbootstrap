@@ -97,7 +97,7 @@ def ask_for_bootimg(args):
             logging.fatal("ERROR: " + str(e) + ". Please try again.")
 
 
-def generate_deviceinfo_fastboot_content(args, bootimg):
+def generate_deviceinfo_fastboot_content(args, bootimg=None):
     if bootimg is None:
         bootimg = {"cmdline": "",
                    "qcdt": "false",
@@ -121,7 +121,7 @@ def generate_deviceinfo_fastboot_content(args, bootimg):
 
 
 def generate_deviceinfo(args, pkgname, name, manufacturer, arch, has_keyboard,
-                        has_external_storage, flash_method, bootimg):
+                        has_external_storage, flash_method, bootimg=None):
     content = """\
         # Reference: <https://postmarketos.org/deviceinfo>
         # Please use double quotes only. You can source this file in shell scripts.
