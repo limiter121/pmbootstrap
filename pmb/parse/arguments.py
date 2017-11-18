@@ -351,7 +351,7 @@ def arguments():
                             "find_aport": {}})
 
     # Add and verify the deviceinfo (only after initialization)
-    if args.action not in ("init", "config"):
+    if args.action not in ("init", "config", "bootimg_analyze"):
         setattr(args, "deviceinfo", pmb.parse.deviceinfo(args))
         arch = args.deviceinfo["arch"]
         if (arch != args.arch_native and
