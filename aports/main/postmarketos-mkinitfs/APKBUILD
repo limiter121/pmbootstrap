@@ -10,6 +10,7 @@ source="init.sh.in init_functions.sh mkinitfs.sh"
 arch="noarch"
 license="GPL2"
 provides="mkinitfs=0.0.1"
+options="!check"
 
 package() {
 	mkdir -p "$pkgdir/usr/share/postmarketos-mkinitfs/"
