@@ -6,7 +6,7 @@ url="https://postmarketos.org"
 license="MIT"
 arch="noarch"
 options="!check"
-depends="linux-sony-honami firmware-sony-amami msm-fb-refresher mkbootimg"
+depends="linux-sony-honami firmware-sony-amami mdss-fb-init-hack mkbootimg"
 source="deviceinfo 90-android-touch-dev.rules"
 
 package() {
