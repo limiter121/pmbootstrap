@@ -16,5 +16,5 @@ package() {
 		"$pkgdir"/etc/udev/rules.d/90-android-touch-dev.rules
 }
 
-sha512sums="38d2efc3dc0db2420e43e26a591e85de6de7b0a4cead18f98796f9cf61ae775f9be84b01a5863b4ccdce5a52ce3376c8671ad4bb9d948c70b8ac92fce9bb0189  deviceinfo
+sha512sums="8ae1eb9a9063285fb67c223559e245764314b94c431ddfb55244a07ca1a54a3235bd37e85a006a05fb0d437886fc7d83da48e6fced52edc2988a19253d87da3a  deviceinfo
 1651ac9eda3c97fafe55abe0f0ae429e04f73edcbf2c56aa3259f81837f7adde348bcb385daed05c30cfc61415455a459a917ed3acccbfd9b7a1caa32a851d40  90-android-touch-dev.rules"
