@@ -3,7 +3,7 @@ _config="config-${_flavor}.${CARCH}"
 
 pkgname=linux-${_flavor}
 
-pkgver=4.14_rc7
+pkgver=4.15_rc1
 _pkgver=${pkgver/_/-}
 _kernver=${pkgver%_rc*}
 _mainver=${_kernver%.*}
@@ -171,9 +171,9 @@ dev() {
 	ln -sf /usr/src/linux-headers-${_abi_release} \
 		"$subpkgdir"/lib/modules/${_abi_release}/build
 }
-sha512sums="a557c2f0303ae618910b7106ff63d9978afddf470f03cb72aa748213e099a0ecd5f3119aea6cbd7b61df30ca6ef3ec57044d524b7babbaabddf8b08b8bafa7d2  linux-4.13.tar.xz
-ec42158f59f105995a3ccde025085343b5e6ba60de778c14cacf9aa34c40ae2e23058a03a1e6545f174c694620bbb0e423947f784c43e1474adfdcb7f866b3b6  linux-v4.13-v4.14-rc1.patch
-f120fc30e759c5c1dfd391c13bfdfa05675fbef02afdad3dce0fd22f02455f4d2ed545c1d4bddf2ada26827f5d54adc6813e2f927df3ebe18cd78ad1c99e0098  linux-v4.14-rc1-v4.14-rc7.patch
+sha512sums="77e43a02d766c3d73b7e25c4aafb2e931d6b16e870510c22cef0cdb05c3acb7952b8908ebad12b10ef982c6efbe286364b1544586e715cf38390e483927904d8  linux-4.14.tar.xz
+ede06f733521cc274456f62b01441ec6194425c0455d937db9324275978fc855372aefbf19d895e8bfbe11dcfe2145dff672c9c3b693315fb9c8e14b280fd43a  linux-v4.14-v4.15-rc1.patch
+cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e  linux-v4.15-rc1-v4.15-rc1.patch
 a75225750193cf31c8b6c15e7748699f842ecadc9ed573f0b10f42bb5343b4e092bcb65b359d170a42a102a4ddfe09d63c1d67550f4b99c29295fa22e1d7b995  config-postmarketos-mainline.armhf
 6310035a0a4c028cc98cab92919cca54be9b79ee9fe63211e7a05876d7befdbd8506a2f80548e228e014e99b0f91f63946352789d8d2f2134c66914163f66ab3  config-postmarketos-mainline.aarch64
 3d42c60061d12a436d19ffdf00623ea71ca31f16f690ae82ebf872d35177c283b4038cd5e270f4e610d6cf6861cef73ac63c995f1f4cfe9d6f2a4a8648ba28fb  config-postmarketos-mainline.x86_64
